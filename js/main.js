@@ -30,8 +30,7 @@ function initLoader() {
     const loadingText = document.getElementById('loading-text');
     
     const loadingMessages = [
-        'Iniciando STD TEC...,
-        'Empecemos!'
+        '[STD-TEC] Cargando módulos de desarrollo...'
     ];
     
     let messageIndex = 0;
