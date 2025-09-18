@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Folios - STD TEC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="typewriter">
+                <span id="loading-text">[STD-TEC] Cargando módulos de folios...</span>
+                <span class="cursor-blink">|</span>
+            </div>
+        </div>
+        <div class="fog-particles"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-logo">
+                <span class="logo-text">STD TEC</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="soporte.html" class="nav-link">Soporte</a>
+                <a href="#folios-home" class="nav-link">Folios</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+
+
+        <section id="inicio" class="hero">
+            <div class="hero-bg">
+                <div class="fog-animation"></div>
+                <div class="particles-container"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="typewriter-hero" id="hero-typewriter">Gestión de Folios de Reparación</span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span id="rotating-text">Sistema profesional de folios</span>
+                </div>
+                <p class="hero-description">
+                    Control y seguimiento completo de equipos en reparación con tecnología avanzada
+                </p>
+                
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+
+        <!-- Folios Home Section -->
+        <section class="section" id="folios-home">
+            <div class="container">
+                <h2 class="section-title">Sistema de Folios</h2>
+                <p class="section-subtitle">Gestión profesional de folios de reparación</p>
+                
+                <div class="portfolio-grid">
+                    <div class="card" id="admin-access">
+                        <div class="card-img-container">
+                            <img src="img/folios/admin-panel.jpg" class="card-img-top" alt="Panel Administrador" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-placeholder" style="display:none">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Modo Administrador</h5>
+                            <p class="card-text">Acceso completo para gestión de folios, reportes y configuración del sistema</p>
+                            <div class="portfolio-features">
+                                <span><i class="fas fa-plus"></i> Crear folios</span>
+                                <span><i class="fas fa-edit"></i> Editar registros</span>
+                                <span><i class="fas fa-chart-bar"></i> Reportes</span>
+                                <span><i class="fas fa-filter"></i> Filtros avanzados</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="public-search">
+                        <div class="card-img-container">
+                            <img src="img/folios/public-search.jpg" class="card-img-top" alt="Buscador Público" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-placeholder" style="display:none">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Buscador Público</h5>
+                            <p class="card-text">Consulta el estatus de tu equipo ingresando el número de folio</p>
+                            <div class="portfolio-features">
+                                <span><i class="fas fa-eye"></i> Ver estatus</span>
+                                <span><i class="fas fa-calendar"></i> Fechas</span>
+                                <span><i class="fas fa-info-circle"></i> Información básica</span>
+                                <span><i class="fas fa-lock-open"></i> Sin registro</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Login Section -->
+        <section class="section" id="admin-login" style="display: none;">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2>Acceso Administrador</h2>
+                        <p>Ingresa tus credenciales para acceder al panel de administración</p>
+                        <div class="contact-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Acceso Seguro</h4>
+                                <p>Solo personal autorizado</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="admin-login-form">
+                        <div class="form-group">
+                            <label for="admin-email">Email</label>
+                            <input type="email" id="admin-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="admin-password">Contraseña</label>
+                            <input type="password" id="admin-password" name="password" required>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="submit" class="cta-button">
+                                <span><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</span>
+                                <div class="button-glow"></div>
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="back-to-home">
+                                <i class="fas fa-arrow-left"></i>
+                                Regresar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Panel Section -->
+        <section class="section" id="admin-panel" style="display: none;">
+            <div class="container">
+                <div class="admin-header">
+                    <h2 class="section-title">Panel de Administración</h2>
+                    <p class="section-subtitle">Gestión completa de folios de reparación</p>
+                    <div class="admin-actions">
+                        <button class="cta-button" id="new-folio-btn">
+                            <span><i class="fas fa-plus"></i> Nuevo Folio</span>
+                            <div class="button-glow"></div>
+                        </button>
+                        <button class="btn btn-danger" id="admin-logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="summary-cards" id="summary-cards">
+                    <!-- Cards will be generated by JavaScript -->
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-container">
+                    <h3>Filtros</h3>
+                    <div class="filters-single-line">
+                        <div class="form-group">
+                            <label for="filter-date-from">Desde</label>
+                            <input type="date" id="filter-date-from">
+                        </div>
+                        <div class="form-group">
+                            <label for="filter-date-to">Hasta</label>
+                            <input type="date" id="filter-date-to">
+                        </div>
+                        <div class="form-group">
+                            <label for="filter-status">Estatus</label>
+                            <select id="filter-status">
+                                <option value="">Todos</option>
+                                <option value="Recibido">Recibido</option>
+                                <option value="En diagnóstico">En diagnóstico</option>
+                                <option value="En reparación">En reparación</option>
+                                <option value="Esperando repuesto">Esperando repuesto</option>
+                                <option value="Listo">Listo</option>
+                                <option value="Entregado">Entregado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filter-responsible">Responsable</label>
+                            <select id="filter-responsible">
+                                <option value="">Todos</option>
+                                <option value="Alejandro">Alejandro</option>
+                                <option value="Técnico 1">Técnico 1</option>
+                                <option value="Técnico 2">Técnico 2</option>
+                            </select>
+                        </div>
+                        <div class="form-group filter-buttons-group">
+                            <button class="cta-button compact" id="apply-filters">
+                                <span><i class="fas fa-filter"></i> Filtrar</span>
+                                <div class="button-glow"></div>
+                            </button>
+                            <button class="btn btn-secondary compact" id="clear-filters">
+                                <i class="fas fa-times"></i> Limpiar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simplified Search -->
+                <div class="advanced-search-container" style="margin-bottom: 2rem;">
+                    <h3>Búsqueda Rápida</h3>
+                    <div class="search-grid">
+                        <div class="form-group input-with-icon" style="grid-column: 1 / -1;">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-folio-number" placeholder="Buscar por folio o nombre del cliente..." autocomplete="off">
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Search Toggle Button -->
+                    <div class="advanced-search-toggle" style="margin-top: 1rem;">
+                        <button type="button" class="btn btn-sm btn-secondary" id="toggle-advanced-search">
+                            <i class="fas fa-sliders-h"></i> Búsqueda avanzada
+                        </button>
+                    </div>
+                    
+                    <!-- Advanced Search (Hidden by default) -->
+                    <div id="advanced-search-fields" style="display: none; margin-top: 1rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+                        <h4 style="margin-bottom: 1rem; color: var(--light-slate);">Filtros Avanzados</h4>
+                        <div class="form-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+                            <div class="form-group">
+                                <label for="search-phone">Teléfono</label>
+                                <input type="text" id="search-phone" placeholder="Buscar por teléfono">
+                            </div>
+                            <div class="form-group">
+                                <label for="search-equipment">Equipo</label>
+                                <input type="text" id="search-equipment" placeholder="Buscar por equipo">
+                            </div>
+                            <div class="form-group">
+                                <label for="filter-status">Estatus</label>
+                                <select id="filter-status">
+                                    <option value="">Todos los estatus</option>
+                                    <option value="Recibido">Recibido</option>
+                                    <option value="En diagnóstico">En diagnóstico</option>
+                                    <option value="En reparación">En reparación</option>
+                                    <option value="Esperando repuesto">Esperando repuesto</option>
+                                    <option value="Listo">Listo</option>
+                                    <option value="Entregado">Entregado</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="filter-responsible">Responsable</label>
+                                <select id="filter-responsible">
+                                    <option value="">Todos los responsables</option>
+                                    <option value="Alejandro">Alejandro</option>
+                                    <option value="Técnico 1">Técnico 1</option>
+                                    <option value="Técnico 2">Técnico 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-buttons" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+                            <button type="button" class="btn btn-secondary" id="clear-advanced-search">
+                                <i class="fas fa-times"></i> Limpiar filtros
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Folios Table -->
+                <div class="table-container">
+                    <table id="folio-table">
+                        <thead>
+                            <tr>
+                                <th data-sortable="folio" onclick="sortTable('folio')" class="sortable">
+                                    Folio <i class="fas fa-sort"></i>
+                                </th>
+                                <th data-sortable="name" onclick="sortTable('name')" class="sortable">
+                                    Nombre <i class="fas fa-sort"></i>
+                                </th>
+                                <th data-sortable="phone" onclick="sortTable('phone')" class="sortable">
+                                    Teléfono <i class="fas fa-sort"></i>
+                                </th>
+                                <th data-sortable="equipmentDetail" onclick="sortTable('equipmentDetail')" class="sortable">
+                                    Equipo <i class="fas fa-sort"></i>
+                                </th>
+                                <th data-sortable="equipmentType" onclick="sortTable('equipmentType')" class="sortable">
+                                    Tipo <i class="fas fa-sort"></i>
+                                </th>
+                                <th data-sortable="responsible" onclick="sortTable('responsible')" class="sortable">
+                                    Responsable <i class="fas fa-sort"></i>
+                                </th>
+                                <th data-sortable="entryDate" onclick="sortTable('entryDate')" class="sortable">
+                                    Ingreso <i class="fas fa-sort"></i>
+                                </th>
+                                <th data-sortable="deliveryDate" onclick="sortTable('deliveryDate')" class="sortable">
+                                    Entrega <i class="fas fa-sort"></i>
+                                </th>
+                                <th data-sortable="status" onclick="sortTable('status')" class="sortable">
+                                    Estatus <i class="fas fa-sort"></i>
+                                </th>
+                                <th data-sortable="cost" onclick="sortTable('cost')" class="sortable">
+                                    Costo <i class="fas fa-sort"></i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="folio-table-body">
+                            <!-- Rows will be generated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Folio Form -->
+                <div class="folio-form-container" id="folio-form-container" style="display: none;">
+                    <div class="form-header">
+                        <h3 id="form-title">Nuevo Folio</h3>
+                        <div class="folio-number-display" id="folio-number-display"></div>
+                    </div>
+                    
+                    <form id="folio-form">
+                        <div class="form-grid">
+                            <!-- Row 1: Folio (auto-generated) -->
+                            <div class="form-group" style="display: none;">
+                                <input type="text" id="folio-number" readonly>
+                            </div>
+                            
+                            <!-- Row 2: Client Info -->
+                            <div class="form-group">
+                                <label for="client-name">Nombre del Cliente <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="client-name" required autocomplete="off" placeholder="Nombre completo del cliente">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="client-phone">Teléfono <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="tel" id="client-phone" required autocomplete="tel" placeholder="Número de contacto">
+                                </div>
+                            </div>
+                            
+                            <!-- Row 3: Equipment Info -->
+                            <div class="form-group">
+                                <label for="equipment-detail">Detalle del Equipo <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-laptop"></i>
+                                    <input type="text" id="equipment-detail" required autocomplete="off" placeholder="Ej: MacBook Pro 13" 2020, 16GB RAM">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="equipment-type">Tipo de Equipo <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-tag"></i>
+                                    <select id="equipment-type" required>
+                                        <option value="">Seleccionar tipo...</option>
+                                        <option value="Laptop">Laptop</option>
+                                        <option value="PC Escritorio">PC Escritorio</option>
+                                        <option value="Impresora">Impresora</option>
+                                        <option value="Monitor">Monitor</option>
+                                        <option value="Tablet">Tablet</option>
+                                        <option value="Smartphone">Smartphone</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- Row 4: Status & Responsible -->
+                            <div class="form-group">
+                                <label for="status">Estatus <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-tasks"></i>
+                                    <select id="status" required>
+                                        <option value="Recibido">Recibido</option>
+                                        <option value="En diagnóstico">En diagnóstico</option>
+                                        <option value="En reparación">En reparación</option>
+                                        <option value="Esperando repuesto">Esperando repuesto</option>
+                                        <option value="Listo">Listo</option>
+                                        <option value="Entregado">Entregado</option>
+                                        <option value="Devuelto">Devuelto</option>
+                                        <option value="Garantía">Garantía</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="responsible">Responsable <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user-tie"></i>
+                                    <select id="responsible" required>
+                                        <option value="">Seleccionar responsable...</option>
+                                        <option value="Alejandro">Alejandro</option>
+                                        <option value="Técnico 1">Técnico 1</option>
+                                        <option value="Técnico 2">Técnico 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- Row 5: Cost -->
+                            <div class="form-group">
+                                <label for="cost">Costo (MXN)</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-tag"></i>
+                                    <input type="number" id="cost" min="0" step="0.01" placeholder="0.00">
+                                </div>
+                            </div>
+                            
+                            <!-- Row 6: Report (Full width) -->
+                            <div class="form-group full-width">
+                                <label for="report">Reporte de Diagnóstico/Reparación</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                    <textarea id="report" rows="4" placeholder="Describa el problema, diagnóstico y solución aplicada..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="submit" class="cta-button">
+                                <span><i class="fas fa-save"></i> Guardar Folio</span>
+                                <div class="button-glow"></div>
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="clear-form">
+                                <i class="fas fa-broom"></i> Limpiar
+                            </button>
+                            <button type="button" class="btn btn-danger" id="delete-folio" style="display: none;">
+                                <i class="fas fa-trash"></i> Eliminar
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="cancel-form">
+                                <i class="fas fa-times"></i> Cancelar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Public Search Section -->
+        <section class="section" id="public-search-section" style="display: none;">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2>Consulta tu Folio</h2>
+                        <p>Ingresa el número de folio para consultar el estatus de tu equipo</p>
+                        <div class="contact-item">
+                            <i class="fas fa-search"></i>
+                            <div>
+                                <h4>Búsqueda Rápida</h4>
+                                <p>Consulta sin registro</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="search-form-container">
+                        <form class="contact-form" id="public-search-form">
+                            <div class="form-group">
+                                <label for="search-folio">Número de Folio</label>
+                                <input type="text" id="search-folio" name="folio" placeholder="Ej: STD-SEP-25-001" required>
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button type="submit" class="cta-button">
+                                    <span><i class="fas fa-search"></i> Buscar Folio</span>
+                                    <div class="button-glow"></div>
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="back-to-home-public">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Regresar
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div id="search-results" style="display: none;">
+                            <h3>Resultado de la Búsqueda</h3>
+                            <div class="search-result-card">
+                                <div class="result-item">
+                                    <strong>Folio:</strong>
+                                    <span id="result-folio"></span>
+                                </div>
+                                <div class="result-item">
+                                    <strong>Estatus:</strong>
+                                    <span id="result-status" class="status-badge"></span>
+                                </div>
+                                <div class="result-item">
+                                    <strong>Fecha de Ingreso:</strong>
+                                    <span id="result-entry-date"></span>
+                                </div>
+                                <div class="result-item">
+                                    <strong>Fecha de Entrega:</strong>
+                                    <span id="result-delivery-date"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="search-error" style="display: none;">
+                            <div class="error-message">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p>No se encontró ningún folio con ese número. Verifica que esté escrito correctamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">STD TEC</span>
+                </div>
+                <p>&copy; 2024 STD TEC. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" title="Volver al inicio">
+        <span>↑</span>
+    </button>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+    <!-- Tu script -->
+
+
+    <script src="js/folios.js"></script>
+</body>
+</html>

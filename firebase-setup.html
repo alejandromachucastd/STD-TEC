@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración Firebase - STD TEC</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        h1, h2, h3 {
+            color: #4ec9b0;
+        }
+        .step {
+            background: rgba(78, 201, 176, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 4px solid #4ec9b0;
+        }
+        .code-block {
+            background: #2d2d2d;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .warning {
+            background: rgba(255, 193, 7, 0.2);
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: rgba(40, 167, 69, 0.2);
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #4ec9b0;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #3ba896;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Configuración de Firebase para STD TEC Folios</h1>
+        
+        <div class="warning">
+            <strong>⚠️ Importante:</strong> Actualmente los datos se guardan en <strong>localStorage</strong> del navegador. 
+            Firebase te permitirá tener los datos en la nube, accesibles desde cualquier dispositivo.
+        </div>
+
+        <h2>📋 Pasos para Configurar Firebase</h2>
+
+        <div class="step">
+            <h3>1. Crear Proyecto en Firebase</h3>
+            <p>1. Ve a <a href="https://console.firebase.google.com" target="_blank" class="btn">Firebase Console</a></p>
+            <p>2. Haz clic en "Crear un proyecto"</p>
+            <p>3. Nombra tu proyecto: <strong>"stdtec-folios"</strong></p>
+            <p>4. Desactiva Google Analytics (no es necesario)</p>
+            <p>5. Haz clic en "Crear proyecto"</p>
+        </div>
+
+        <div class="step">
+            <h3>2. Configurar Realtime Database</h3>
+            <p>1. En el panel izquierdo, ve a <strong>"Realtime Database"</strong></p>
+            <p>2. Haz clic en "Crear base de datos"</p>
+            <p>3. Selecciona ubicación (preferiblemente cerca de tu ubicación)</p>
+            <p>4. Inicia en <strong>"modo de prueba"</strong> (cambiaremos las reglas después)</p>
+        </div>
+
+        <div class="step">
+            <h3>3. Obtener Configuración del Proyecto</h3>
+            <p>1. Ve a "Configuración del proyecto" (ícono de engranaje)</p>
+            <p>2. Baja hasta "Tus apps" y haz clic en "Web" (&lt;/&gt;)</p>
+            <p>3. Registra la app con nombre: <strong>"STD TEC Folios"</strong></p>
+            <p>4. <strong>NO</strong> marques "Firebase Hosting"</p>
+            <p>5. Copia la configuración que aparece</p>
+        </div>
+
+        <div class="step">
+            <h3>4. Agregar Firebase SDK a folios.html</h3>
+            <p>Agrega estos scripts <strong>ANTES</strong> del script de folios.js:</p>
+            <div class="code-block">
+&lt;!-- Firebase SDK --&gt;
+&lt;script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"&gt;&lt;/script&gt;
+&lt;script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"&gt;&lt;/script&gt;
+
+&lt;!-- Tu script de folios --&gt;
+&lt;script src="js/folios.js"&gt;&lt;/script&gt;
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>5. Actualizar Configuración en folios.js</h3>
+            <p>Reemplaza la configuración en <strong>FIREBASE_CONFIG</strong> con tus datos:</p>
+            <div class="code-block">
+const FIREBASE_CONFIG = {
+    apiKey: "tu-api-key-aqui",
+    authDomain: "tu-proyecto.firebaseapp.com",
+    databaseURL: "https://tu-proyecto-default-rtdb.firebaseio.com",
+    projectId: "tu-proyecto-id",
+    storageBucket: "tu-proyecto.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abcdef123456"
+};
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>6. Activar Firebase</h3>
+            <p>Cambia la variable en folios.js:</p>
+            <div class="code-block">
+const USE_FIREBASE = true; // Cambiar de false a true
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>7. Configurar Reglas de Seguridad</h3>
+            <p>En Firebase Console, ve a "Realtime Database" → "Reglas" y usa:</p>
+            <div class="code-block">
+{
+  "rules": {
+    "folios": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "counters": {
+      ".read": "auth != null", 
+      ".write": "auth != null"
+    }
+  }
+}
+            </div>
+            <div class="warning">
+                <strong>Nota:</strong> Estas reglas requieren autenticación. Para desarrollo, puedes usar:
+                <div class="code-block">
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+                </div>
+                <strong>⚠️ CAMBIAR EN PRODUCCIÓN por seguridad</strong>
+            </div>
+        </div>
+
+        <h2>🚀 Funciones Disponibles</h2>
+
+        <div class="step">
+            <h3>Migración de Datos</h3>
+            <p>Para migrar tus datos actuales de localStorage a Firebase:</p>
+            <div class="code-block">
+// En la consola del navegador (F12)
+migrateToFirebase().then(success => {
+    if (success) {
+        console.log('✅ Migración exitosa');
+    } else {
+        console.log('❌ Error en migración');
+    }
+});
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>Sincronización Manual</h3>
+            <p>Para sincronizar datos entre localStorage y Firebase:</p>
+            <div class="code-block">
+// En la consola del navegador (F12)
+syncWithFirebase().then(result => {
+    if (result) {
+        console.log('✅ Sincronización exitosa');
+        console.log('Folios:', result.folios.length);
+    }
+});
+            </div>
+        </div>
+
+        <h2>✅ Ventajas de Firebase</h2>
+        <ul>
+            <li><strong>☁️ Almacenamiento en la nube:</strong> Datos accesibles desde cualquier dispositivo</li>
+            <li><strong>🔄 Sincronización automática:</strong> Cambios se reflejan en tiempo real</li>
+            <li><strong>💾 Respaldo automático:</strong> Datos seguros en servidores de Google</li>
+            <li><strong>📱 Acceso multiplataforma:</strong> Web, móvil, desktop</li>
+            <li><strong>🔒 Seguridad:</strong> Reglas de acceso configurables</li>
+            <li><strong>⚡ Rendimiento:</strong> Base de datos optimizada</li>
+        </ul>
+
+        <div class="success">
+            <h3>🎉 Sistema Híbrido</h3>
+            <p>El sistema está diseñado para funcionar con <strong>localStorage como respaldo</strong>. 
+            Si Firebase falla, automáticamente usa localStorage. Los datos siempre se guardan en ambos lugares.</p>
+        </div>
+
+        <h2>🛠️ Solución de Problemas</h2>
+        
+        <div class="step">
+            <h3>Error: Firebase SDK no cargado</h3>
+            <p>Verifica que los scripts de Firebase estén antes de folios.js</p>
+        </div>
+
+        <div class="step">
+            <h3>Error: Permisos denegados</h3>
+            <p>Revisa las reglas de seguridad en Firebase Console</p>
+        </div>
+
+        <div class="step">
+            <h3>Datos no se sincronizan</h3>
+            <p>Verifica la configuración y que USE_FIREBASE = true</p>
+        </div>
+
+        <div class="warning">
+            <h3>🔧 Modo de Desarrollo</h3>
+            <p>Para desarrollo, puedes mantener <strong>USE_FIREBASE = false</strong> y usar solo localStorage. 
+            Cuando esté listo para producción, configura Firebase y cambia a <strong>true</strong>.</p>
+        </div>
+    </div>
+</body>
+</html>
