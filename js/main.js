@@ -28,13 +28,9 @@ function initializeWebsite() {
 function initLoader() {
     const loader = document.getElementById('loader');
     const loadingText = document.getElementById('loading-text');
-    
+
     const loadingMessages = [
-        'Iniciando STD TEC...',
-        'Cargando módulos...',
-        'Conectando sistemas...',
-        'Preparando experiencia...',
-        'Listo para innovar!'
+        '[STD-TEC] Cargando módulos de desarrollo...'
     ];
     
     let messageIndex = 0;
